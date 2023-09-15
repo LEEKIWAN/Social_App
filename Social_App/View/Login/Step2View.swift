@@ -19,7 +19,9 @@ struct Step2View: View {
                 Text("What's your email?")
                     .font(.system(size: 25, weight: .bold))
                                 
-                
+                Spacer()
+                    .frame(height: 25)
+                                
                 RoundedTextField(placeHolder: "yourname@company.com", text: $email, keyboardType: .emailAddress)
                 
                 

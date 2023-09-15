@@ -8,56 +8,61 @@
 import SwiftUI
 
 struct WelcomeView: View {
+
     var body: some View {
-        ZStack {
-            LinearGradient(colors: [.primaryApp, .primaryEnd], startPoint: .top, endPoint: .bottom)
-            
-            VStack(alignment: .leading) {
-                createHaveAnAccountText()
+        NavigationStack {
+            ZStack {
+                LinearGradient(colors: [.primaryApp, .primaryEnd], startPoint: .top, endPoint: .bottom)
                 
-                Spacer()
-                
-                Group {
-                    createAppLogoImage()
-                    createWelcomeText()
+                VStack(alignment: .leading) {
+                    createLoginText()
                     
-                    createGoogleButton()
                     Spacer()
-                        .frame(height: 20)
                     
-                    createCreateAccountButton()
+                    Group {
+                        createAppLogoImage()
+                        createWelcomeText()
+                        
+                        createGoogleButton()
+                        
+                        createCreateAccountButton()
+                    }
+                                    
+                    createPolicyGuides()
                 }
-                                
-                createPolicyGuides()
+                .padding(.horizontal, 20)
+                .foregroundColor(.whiteText)
+                
             }
-            .padding(.horizontal, 20)
-            .foregroundColor(.whiteText)
-            
+            .ignoresSafeArea()
         }
-        .ignoresSafeArea()
+        
         
     }
 }
 
 
+
 // MARK: - Privacy Views
 private extension WelcomeView {
-    func createHaveAnAccountText() -> some View {
-        HStack {
-            Text("Have an account already?")
-                .font(.system(size: 14, weight: .regular))
-            
-            Button(action: {
+    func createLoginText() -> some View {
+        NavigationLink {
+            LoginView()
+        } label: {
+            HStack {
+                Text("Have an account already?")
+                    .font(.system(size: 16, weight: .semibold))
                 
-            }, label: {
                 Text("Login")
-                    .font(.system(size: 14))
+                    .font(.system(size: 16, weight: .semibold))
                     .underline()
-            })
-                
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.top, .topInsets + 15)
+            
         }
-        .frame(maxWidth: .infinity, alignment: .trailing)
-        .padding(.top, .topInsets + 15)
+        
+        
     }
     
     func createAppLogoImage() -> some View {
@@ -89,26 +94,27 @@ private extension WelcomeView {
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(.primaryApp)
             }
+            .frame(maxWidth: .infinity, minHeight: 54, alignment: .center)
+            .background(Color.whiteText)
+            .cornerRadius(25)
         }
-        .frame(maxWidth: .infinity, minHeight: 54, alignment: .center)
-        .background(Color.whiteText)
-        .cornerRadius(27)
+        
+        
+        
     }
     
     func createCreateAccountButton() -> some View {
         NavigationLink {
             Step1View()
         } label: {
-            HStack {
-                Text("Create Account")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundColor(Color.whiteText)
-            }
+            Text("Create Account")
+                .font(.system(size: 15, weight: .semibold))
+                .foregroundColor(Color.whiteText)
+                .frame(maxWidth: .infinity, minHeight: 54, alignment: .center)
+                .background(Color.clear)
+                .overlay(RoundedRectangle(cornerRadius: 25).stroke(.white, lineWidth: 2))
         }
-        .frame(maxWidth: .infinity, minHeight: 54, alignment: .center)
-        .background(Color.clear)
-        .cornerRadius(27)
-        .overlay(RoundedRectangle(cornerRadius: 25).stroke(.white, lineWidth: 2))
+        
     }
     
     func createPolicyGuides() -> some View {

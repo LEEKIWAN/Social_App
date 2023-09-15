@@ -20,6 +20,9 @@
 		836638D42AB2F4DF00FCB47F /* Step2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836638D32AB2F4DF00FCB47F /* Step2View.swift */; };
 		836638D62AB2F4E300FCB47F /* Step3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836638D52AB2F4E300FCB47F /* Step3View.swift */; };
 		836638D82AB2F67100FCB47F /* RoundedSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836638D72AB2F67100FCB47F /* RoundedSecureField.swift */; };
+		836638DA2AB2FBC200FCB47F /* Step4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836638D92AB2FBC200FCB47F /* Step4View.swift */; };
+		836638DD2AB3016800FCB47F /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836638DC2AB3016800FCB47F /* NavigationUtil.swift */; };
+		836638DF2AB3037100FCB47F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836638DE2AB3037100FCB47F /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		836638D32AB2F4DF00FCB47F /* Step2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step2View.swift; sourceTree = "<group>"; };
 		836638D52AB2F4E300FCB47F /* Step3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step3View.swift; sourceTree = "<group>"; };
 		836638D72AB2F67100FCB47F /* RoundedSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSecureField.swift; sourceTree = "<group>"; };
+		836638D92AB2FBC200FCB47F /* Step4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step4View.swift; sourceTree = "<group>"; };
+		836638DC2AB3016800FCB47F /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
+		836638DE2AB3037100FCB47F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +75,8 @@
 		836638B32AB2E8C500FCB47F /* Social_App */ = {
 			isa = PBXGroup;
 			children = (
-				836638C22AB2E8DE00FCB47F /* Common */,
 				836638B42AB2E8C500FCB47F /* Social_AppApp.swift */,
+				836638C22AB2E8DE00FCB47F /* Common */,
 				836638CC2AB2E97E00FCB47F /* CustomViews */,
 				836638C82AB2E92E00FCB47F /* View */,
 				836638B82AB2E8C700FCB47F /* Assets.xcassets */,
@@ -90,6 +96,7 @@
 		836638C22AB2E8DE00FCB47F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				836638DB2AB3015800FCB47F /* Utils */,
 				836638C32AB2E8DE00FCB47F /* Extension */,
 			);
 			path = Common;
@@ -120,6 +127,8 @@
 				836638CA2AB2E95200FCB47F /* Step1View.swift */,
 				836638D32AB2F4DF00FCB47F /* Step2View.swift */,
 				836638D52AB2F4E300FCB47F /* Step3View.swift */,
+				836638D92AB2FBC200FCB47F /* Step4View.swift */,
+				836638DE2AB3037100FCB47F /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -132,6 +141,14 @@
 				836638D72AB2F67100FCB47F /* RoundedSecureField.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		836638DB2AB3015800FCB47F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				836638DC2AB3016800FCB47F /* NavigationUtil.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +226,10 @@
 				836638D02AB2EFAA00FCB47F /* EnvironmentValues+.swift in Sources */,
 				836638D22AB2F1DD00FCB47F /* RoundedTextField.swift in Sources */,
 				836638CB2AB2E95200FCB47F /* Step1View.swift in Sources */,
+				836638DD2AB3016800FCB47F /* NavigationUtil.swift in Sources */,
+				836638DA2AB2FBC200FCB47F /* Step4View.swift in Sources */,
 				836638C62AB2E8DE00FCB47F /* CGFloat+.swift in Sources */,
+				836638DF2AB3037100FCB47F /* LoginView.swift in Sources */,
 				836638B52AB2E8C500FCB47F /* Social_AppApp.swift in Sources */,
 				836638CE2AB2E98A00FCB47F /* NavigationBar.swift in Sources */,
 				836638D62AB2F4E300FCB47F /* Step3View.swift in Sources */,

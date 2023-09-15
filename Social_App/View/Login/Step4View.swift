@@ -1,5 +1,5 @@
 //
-//  Step3View.swift
+//  Step4View.swift
 //  Social_App
 //
 //  Created by 이기완 on 2023/09/14.
@@ -7,40 +7,44 @@
 
 import SwiftUI
 
-struct Step3View: View {
-    @State private var password: String = ""
-    @State private var rePassword: String = ""
+struct Step4View: View {
     
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
-                NavigationBar()
                 Spacer()
                 
-                Text("Create a password")
+                Text("Turn on notifications")
                     .font(.system(size: 25, weight: .bold))
-                
-                Spacer()
-                    .frame(height: 25)
                                 
                 
-                RoundedSecureField(placeHolder: "Password", text: $password)
-                RoundedSecureField(placeHolder: "Re-Type Password", text: $rePassword)
+                Text("Get the most out of Company by staying up to date with what's happening.")
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundColor(.primaryText)
+                    .padding(.vertical, 12)
                 
                 
-                NavigationLink {
-                    Step4View()
+                Button {
+                    NavigationUtil.popToRootView()
                 } label: {
-                    Text("Next")
+                    Text("Allow Notifications")
                         .font(.system(size: 15, weight: .regular))
                         .foregroundColor(.whiteText)
                         .frame(maxWidth: .infinity, minHeight: 54)
                         .background(Color.primaryApp)
-                        .cornerRadius(27)
+                        .cornerRadius(25)
                         .padding(.vertical, 15)
                 }
                 
-
+                
+                
+                Button {
+                    NavigationUtil.popToRootView()
+                } label: {
+                    Text("Skip for now")
+                        .font(.system(size: 15, weight: .medium))
+                        .foregroundColor(.primaryApp)
+                }
                 
                 Spacer()
                 
@@ -51,8 +55,8 @@ struct Step3View: View {
     }
 }
 
-struct Step3View_Previews: PreviewProvider {
+struct Step4View_Previews: PreviewProvider {
     static var previews: some View {
-        Step3View()
+        Step4View()
     }
 }

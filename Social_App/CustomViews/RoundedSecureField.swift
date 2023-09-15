@@ -33,7 +33,7 @@ struct RoundedSecureField: View {
             } label: {
                 Image(systemName: isShowPassword ? "eye.slash.fill" : "eye.fill" )
                     .padding()
-                    .foregroundColor(.black)
+                    .foregroundColor(.gray)
             }
 
             

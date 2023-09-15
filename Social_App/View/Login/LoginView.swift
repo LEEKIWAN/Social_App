@@ -1,5 +1,5 @@
 //
-//  Step3View.swift
+//  LoginView.swift
 //  Social_App
 //
 //  Created by 이기완 on 2023/09/14.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct Step3View: View {
+struct LoginView: View {
+    @State private var email: String = ""
     @State private var password: String = ""
-    @State private var rePassword: String = ""
     
     var body: some View {
         ZStack {
@@ -17,21 +17,26 @@ struct Step3View: View {
                 NavigationBar()
                 Spacer()
                 
-                Text("Create a password")
+                Text("Login")
                     .font(.system(size: 25, weight: .bold))
-                
+                    
                 Spacer()
                     .frame(height: 25)
                                 
                 
+                RoundedTextField(placeHolder: "Email", text: $email)
                 RoundedSecureField(placeHolder: "Password", text: $password)
-                RoundedSecureField(placeHolder: "Re-Type Password", text: $rePassword)
                 
+                
+                Text("Forgot passowrd?")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(.primaryApp)
+                    .padding(.vertical, 8)
                 
                 NavigationLink {
-                    Step4View()
+                    
                 } label: {
-                    Text("Next")
+                    Text("Login")
                         .font(.system(size: 15, weight: .regular))
                         .foregroundColor(.whiteText)
                         .frame(maxWidth: .infinity, minHeight: 54)
@@ -40,9 +45,25 @@ struct Step3View: View {
                         .padding(.vertical, 15)
                 }
                 
-
                 
                 Spacer()
+                
+                HStack {
+                    Text("Don't have an account?")
+                        .font(.system(size: 14, weight: .regular))
+                        .foregroundColor(.primaryText)
+                    
+                    NavigationLink {
+                        Step1View()
+                    } label: {
+                        Text("Sign up")
+                            .font(.system(size: 14, weight: .regular))
+                            .foregroundColor(.primaryApp)
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.bottom)
+                
                 
             }
             .padding(.horizontal, 20)
@@ -51,8 +72,9 @@ struct Step3View: View {
     }
 }
 
-struct Step3View_Previews: PreviewProvider {
+
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        Step3View()
+        LoginView()
     }
 }

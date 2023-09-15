@@ -15,6 +15,7 @@ struct NavigationBar: View {
         HStack {
             Button {
                 presentationMode.wrappedValue.dismiss()
+                presentationMode.wrappedValue.dismiss()
             } label: {
                 Image(systemName: "chevron.backward")
                     .resizable()

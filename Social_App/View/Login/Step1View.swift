@@ -20,9 +20,14 @@ struct Step1View: View {
                 
                 Text("What's your name?")
                     .font(.system(size: 25, weight: .bold))
+                               
+                Spacer()
+                    .frame(height: 25)
                                 
                 
+                
                 RoundedTextField(placeHolder: "First Name", text: $firstName)
+                
                 RoundedTextField(placeHolder: "Last Name", text: $lastName)
                 
                 
