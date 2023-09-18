@@ -85,8 +85,8 @@ private extension WelcomeView {
     
     
     func createGoogleButton() -> some View {
-        Button {
-            
+        NavigationLink {
+            MainTabView()
         } label: {
             HStack {
                 Image("google")

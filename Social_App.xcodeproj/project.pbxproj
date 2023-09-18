@@ -23,6 +23,8 @@
 		836638DA2AB2FBC200FCB47F /* Step4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836638D92AB2FBC200FCB47F /* Step4View.swift */; };
 		836638DD2AB3016800FCB47F /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836638DC2AB3016800FCB47F /* NavigationUtil.swift */; };
 		836638DF2AB3037100FCB47F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836638DE2AB3037100FCB47F /* LoginView.swift */; };
+		836638E22AB3E65C00FCB47F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836638E12AB3E65C00FCB47F /* MainTabView.swift */; };
+		836638E42AB3EC7300FCB47F /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836638E32AB3EC7300FCB47F /* TabButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		836638D92AB2FBC200FCB47F /* Step4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step4View.swift; sourceTree = "<group>"; };
 		836638DC2AB3016800FCB47F /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		836638DE2AB3037100FCB47F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		836638E12AB3E65C00FCB47F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		836638E32AB3EC7300FCB47F /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 		836638C82AB2E92E00FCB47F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				836638E02AB3E65100FCB47F /* MainTab */,
 				836638C92AB2E93100FCB47F /* Login */,
 			);
 			path = View;
@@ -149,6 +154,15 @@
 				836638DC2AB3016800FCB47F /* NavigationUtil.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		836638E02AB3E65100FCB47F /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				836638E12AB3E65C00FCB47F /* MainTabView.swift */,
+				836638E32AB3EC7300FCB47F /* TabButton.swift */,
+			);
+			path = MainTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +248,9 @@
 				836638CE2AB2E98A00FCB47F /* NavigationBar.swift in Sources */,
 				836638D62AB2F4E300FCB47F /* Step3View.swift in Sources */,
 				836638D82AB2F67100FCB47F /* RoundedSecureField.swift in Sources */,
+				836638E42AB3EC7300FCB47F /* TabButton.swift in Sources */,
 				836638D42AB2F4DF00FCB47F /* Step2View.swift in Sources */,
+				836638E22AB3E65C00FCB47F /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
