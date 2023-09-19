@@ -14,14 +14,12 @@ struct MainTabView: View {
         
         ZStack(alignment: .bottom) {
             
-            VStack {
-//                Spacer()
+            VStack(spacing: 0) {
                 
                 TabView(selection: $selectedTabIndex) {
-                    VStack {
-                        Text("Home Tab")
-                    }
-                    .tag(0)
+                    
+                    HomeView()
+                        .tag(0)
                     
                     VStack {
                         Text("Stories Tab")
@@ -29,7 +27,7 @@ struct MainTabView: View {
                     .tag(1)
                     
                     VStack {
-                        Text("Notifications Tab")
+                        Color.red
                     }
                     .tag(2)
                     
@@ -37,16 +35,17 @@ struct MainTabView: View {
                         Text("Search Tab")
                     }
                     .tag(3)
-                    
                 }
-                
-                
-                
+                .onAppear {
+                    UITabBar.appearance().isHidden = true
+                }
+                                
                 createTabBar()
             }
             
             createCameraButton()
         }
+        .navigationBarBackButtonHidden()
         .ignoresSafeArea()
     }
     
@@ -72,8 +71,7 @@ struct MainTabView: View {
                 selectedTabIndex = 3
             }
         }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 5)
+        .frame(maxWidth: .infinity, maxHeight: 49)
         .padding(.bottom, .bottomInsets)
         .background(Rectangle().fill(.white)
             .shadow(color: .black.opacity(0.15), radius: 5, y: -3))
@@ -95,10 +93,10 @@ struct MainTabView: View {
                     .scaledToFit()
                     .padding()
             }
-            .frame(width: 70, height: 70)
+            .frame(width: 60, height: 60)
             .foregroundColor(.white)
             .background(Circle().stroke(Color.gray.opacity(0.6), lineWidth: 1))
-            .padding(.bottom, .bottomInsets + 24)
+            .padding(.bottom, .bottomInsets + 16)
         }
     }
 }

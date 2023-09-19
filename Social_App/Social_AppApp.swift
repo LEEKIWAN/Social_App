@@ -13,7 +13,20 @@ struct Social_AppApp: App {
         WindowGroup {
 //            NavigationStack {
                 WelcomeView()
-//            }
+                .onAppear {
+                    initlaizePublicThemes()
+                }
         }
+    }
+    
+    
+    func initlaizePublicThemes() {
+        
+        print("dddd")
+        
+        
+        UITabBar.appearance().isHidden = true
+        
+
     }
 }

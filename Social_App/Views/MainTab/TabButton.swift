@@ -22,11 +22,11 @@ struct TabButton: View {
                 Image(systemName: icon)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 30, height: 30)
+                    .frame(width: 22, height: 22)
                     .fontWeight(.light)
                 
                 Text(title)
-                    .font(.system(size: 10, weight: .bold))
+                    .font(.system(size: 7, weight: .bold))
             }
             .frame(maxWidth: .infinity)
             
