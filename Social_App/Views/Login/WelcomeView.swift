@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct WelcomeView: View {
-
+    @EnvironmentObject private var appRootManager: AppRootManager
+    
+    @State private var isLogged = false
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -22,9 +25,7 @@ struct WelcomeView: View {
                     Group {
                         createAppLogoImage()
                         createWelcomeText()
-                        
                         createGoogleButton()
-                        
                         createCreateAccountButton()
                     }
                                     
@@ -85,8 +86,8 @@ private extension WelcomeView {
     
     
     func createGoogleButton() -> some View {
-        NavigationLink {
-            MainTabView()
+        Button {
+            appRootManager.currentRoot = .mainTab
         } label: {
             HStack {
                 Image("google")

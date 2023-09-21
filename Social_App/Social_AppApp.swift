@@ -9,14 +9,33 @@ import SwiftUI
 
 @main
 struct Social_AppApp: App {
-    var body: some Scene {
+    
+    @StateObject private var appRootManager = AppRootManager()
+    @State private var isAnimating = true
+    
+    var body: some Scene {        
         WindowGroup {
 //            NavigationStack {
-                WelcomeView()
-                .onAppear {
-                    initlaizePublicThemes()
+                Group {
+                    switch appRootManager.currentRoot {
+                    case .splash:
+                        WelcomeView()
+                            .animation(.easeIn, value: isAnimating)
+                        
+                    case .login:
+                        WelcomeView()
+                            .animation(.easeIn, value: isAnimating)
+                        
+                    case .mainTab:
+                        MainTabView()
+                            .animation(.easeOut, value: isAnimating)
+                        
+                    }
                 }
+//            }
         }
+        .environmentObject(appRootManager)
+        
     }
     
     

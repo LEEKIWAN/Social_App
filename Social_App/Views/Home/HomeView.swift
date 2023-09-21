@@ -8,35 +8,45 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
     
+    @State private var path = NavigationPath()
+    
     var body: some View {
-        ZStack(alignment: .top) {
-            VStack {
-                Spacer()
-                    .frame(height: 50)
-                
-              
-                ScrollView {
-                    createRecommendUsersView()
+        NavigationStack(path: $path) {
+            ZStack(alignment: .top) {
+                VStack {
                     Spacer()
-                        .frame(height: 15)
-                    createUserFeedsView()
+                        .frame(height: 50)
+                    
+                    
+                    ScrollView {
+                        createRecommendUsersView()
+                        Spacer()
+                            .frame(height: 15)
+                        createUserFeedsView()
+                        Spacer()
+                            .frame(height: 25)
+                    }
+                    .background(Color.white)
                 }
+                .padding(.top, .topInsets)
                 .background(Color.white)
                 
+                createNavigationBar()
             }
-            .padding(.top, .topInsets)
-            .padding(.bottom, 25)
-            .background(Color.white)
-            createNavigationBar()
+            .ignoresSafeArea()
+            .task {
+                print("ff")
+                await viewModel.fetchRecommendUsers()
+                await viewModel.fetchUserFeeds()
+            }
         }
-        .ignoresSafeArea()
-        .task {
-            await viewModel.fetchRecommendUsers()
-            await viewModel.fetchUserFeeds()
-        }
-        
+        .navigationDestination(for: Int.self) { val in
+            let _ = print(val)
+            UserDetailView()
+        }        
     }
     
     
@@ -67,6 +77,7 @@ struct HomeView: View {
                 } label: {
                     Image("user_profile")
                         .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: 35, height: 35)
                         .cornerRadius(17.5)
                         .padding(.horizontal)
@@ -93,8 +104,11 @@ struct HomeView: View {
                 LazyHStack(alignment: .top) {
                     
                     ForEach(viewModel.recommendUsers) { user in
-                        RecommendCell(user: user)
-                            .frame(width: 80, height: 100)
+                        RecommendUserCell(user: user) {
+                            UserDetailView()
+                        }
+                        .frame(width: 80, height: 100)
+                        
                     }
                 }
                 .padding(.horizontal)
@@ -108,13 +122,20 @@ struct HomeView: View {
         ForEach(viewModel.userFeeds) { userFeed in
             VStack {
                 HStack(spacing: 0) {
-                    Image(userFeed.image)
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        
-                        .clipShape(Circle())
-                        .padding(.horizontal)
-                        .padding(.vertical, 4)
+                    Button {
+                        path.append(1)
+//                        path.append(userFeed)
+                    } label: {
+                        Image(userFeed.image)
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            
+                            .clipShape(Circle())
+                            .padding(.horizontal)
+                            .padding(.vertical, 4)
+                    }
+
+                    
                     
                     VStack(alignment: .leading) {
                         Text(userFeed.name)

@@ -10,43 +10,43 @@ import SwiftUI
 struct MainTabView: View {
     @State var selectedTabIndex = 0
     
+    @State var path = NavigationPath()
     var body: some View {
-        
-        ZStack(alignment: .bottom) {
-            
-            VStack(spacing: 0) {
+        NavigationStack(path: $path) {
+            ZStack(alignment: .bottom) {
                 
-                TabView(selection: $selectedTabIndex) {
+                VStack(spacing: 0) {
                     
-                    HomeView()
-                        .tag(0)
-                    
-                    VStack {
-                        Text("Stories Tab")
+                    TabView(selection: $selectedTabIndex) {
+                        
+                        HomeView()
+                            .tag(0)
+                        
+                        MessageMainView()
+                            .tag(1) 
+                        
+                        VStack {
+                            Color.red
+                        }
+                        .tag(2)
+                        
+                        VStack {
+                            Text("Search Tab")
+                        }
+                        .tag(3)
                     }
-                    .tag(1)
-                    
-                    VStack {
-                        Color.red
+                    .onAppear {
+                        UITabBar.appearance().isHidden = true
                     }
-                    .tag(2)
                     
-                    VStack {
-                        Text("Search Tab")
-                    }
-                    .tag(3)
+                    createTabBar()
                 }
-                .onAppear {
-                    UITabBar.appearance().isHidden = true
-                }
-                                
-                createTabBar()
+                
+                createCameraButton()
             }
-            
-            createCameraButton()
+            .navigationBarBackButtonHidden()
+            .ignoresSafeArea()
         }
-        .navigationBarBackButtonHidden()
-        .ignoresSafeArea()
     }
     
     
@@ -56,7 +56,7 @@ struct MainTabView: View {
                 selectedTabIndex = 0
             }
             
-            TabButton(icon: "book.closed", title: "STORIES", isSelected: selectedTabIndex == 1) {
+            TabButton(icon: "ellipsis.message", title: "MESSAGES", isSelected: selectedTabIndex == 1) {
                 selectedTabIndex = 1
             }
             
@@ -103,6 +103,8 @@ struct MainTabView: View {
 
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView()
+//        NavigationStack {
+            MainTabView()
+//        }
     }
 }
