@@ -26,6 +26,8 @@ struct MessageMainView: View {
                         createActiveUsersView()
                         
                         createMyChatListView()
+                        
+                        createWhatPeopleSayingView()
                     }
                     .background(Color.white)
                 }
@@ -38,6 +40,7 @@ struct MessageMainView: View {
             .task {
                 await viewModel.fetchActiveUsers()
                 await viewModel.fetchChatRooms()
+                await viewModel.fetchWhatPeopleSayings()
             }
         }
         
@@ -111,7 +114,7 @@ struct MessageMainView: View {
     func createActiveUsersView() -> some View {
         VStack {
             Text("Active")
-                .font(.system(size: 16, weight: .bold))
+                .font(.system(size: 18, weight: .bold))
                 .foregroundColor(.primaryText)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
@@ -150,12 +153,46 @@ struct MessageMainView: View {
                     .scaledToFit()
                     .foregroundColor(.black)
                     .frame(width: 25, height: 25)
-                    .padding()
+                    .padding(.horizontal)
+            }
+            .padding(.top)
+            
+            VStack {
+                ForEach(viewModel.chatRooms) { chatRoom in
+                    ChatRoomCell(chatRoom: chatRoom)
+                }
+            }
+            .padding(.vertical, 10)
+            
+            
+            
+            Divider()
+        }
+    }
+    
+    func createWhatPeopleSayingView() -> some View {
+        VStack {
+            HStack {
+                Text("What People ar talking about...")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundColor(.primaryText)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
+            }
+            .padding(.top)
+            
+            ScrollView(.horizontal) {
+                LazyHStack(spacing: 18) {
+                    ForEach(viewModel.whatPeopleSaygs) { whatPeopleSaying in
+                        WhatPeopleSayingCell(whatPeopleSaying: whatPeopleSaying)
+                    }
+                }
+                .padding()
             }
         }
-        
-        
+        .padding(.bottom, 10)
     }
+    
     
 }
 

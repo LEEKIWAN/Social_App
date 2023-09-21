@@ -13,7 +13,7 @@ struct ChatRoom: Codable, Identifiable, Hashable {
     
     var name: String
     var last_message: String
-    var image: [String]
+    var images: [String]
     var isOnline: Bool
     var time: String
     var isGroup: Bool
