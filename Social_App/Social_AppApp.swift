@@ -35,7 +35,7 @@ struct Social_AppApp: App {
 //            }
         }
         .environmentObject(appRootManager)
-        
+         
     }
     
     
